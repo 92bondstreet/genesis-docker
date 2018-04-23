@@ -34,7 +34,7 @@ if [ "$(id -u)" != "0" ]; then
   exit 1
 fi
 
-VERSION_DOCKER_COMPOSE="1.14.0"
+VERSION_DOCKER_COMPOSE="1.21.0"
 
 header "Prerequisites by updating apt and installing docker repository"
 apt-get remove docker docker-engine docker.io

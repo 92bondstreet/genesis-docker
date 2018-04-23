@@ -27,5 +27,5 @@ or
 
 ## Deep diving
 
-* [Installation on Debian](https://docs.docker.com/engine/installation/linux/debian/#/debian-jessie-80-64-bit)
+* [Installation on Debian](https://docs.docker.com/install/linux/docker-ce/debian)
 * [Install Docker Compose](https://docs.docker.com/compose/install/)
