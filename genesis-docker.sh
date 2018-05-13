@@ -59,5 +59,8 @@ apt-get update
 apt-get install docker-ce
 cecho "Hello World" $yellow
 docker run hello-world
+header "Install Docker compose"
+curl -L https://github.com/docker/compose/releases/download/$VERSION_DOCKER_COMPOSE/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose
+chmod +x /usr/local/bin/docker-compose
 docker-compose --version
 cecho "Docker done" $green
