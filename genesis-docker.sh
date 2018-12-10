@@ -10,12 +10,13 @@ green='\033[0;32m'
 
 ## Color-echo.
 #  Reset text attributes to normal + without clearing screen.
-alias Reset="tput sgr0"
+Reset="tput sgr0"
 # arg $1 = message
 # arg $2 = Color
 cecho() {
-  echo "${2}${1}"
-  Reset # Reset to normal.
+  echo -e "${2}"
+  echo "${1}"
+  $Reset # Reset to normal.
   return
 }
 
@@ -34,7 +35,7 @@ if [ "$(id -u)" != "0" ]; then
   exit 1
 fi
 
-VERSION_DOCKER_COMPOSE="1.21.0"
+VERSION_DOCKER_COMPOSE=$(curl -s https://api.github.com/repos/docker/compose/releases/latest | grep 'tag_name' | cut -d\" -f4)
 
 header "Prerequisites by updating apt and installing docker repository"
 apt-get remove docker docker-engine docker.io
@@ -56,7 +57,7 @@ cecho "apt and docker repository done" $green
 
 header "Install Docker CE"
 apt-get update
-apt-get install docker-ce
+apt-get install --yes --force-yes docker-ce
 cecho "Hello World" $yellow
 docker run hello-world
 header "Install Docker compose"
